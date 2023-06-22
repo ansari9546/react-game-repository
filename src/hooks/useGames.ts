@@ -1,3 +1,4 @@
+import { Genere } from "./useGeneres";
 import useData from "./usedata";
 
 export interface PlatForm {
@@ -14,6 +15,8 @@ export interface Games {
   metacritic: number;
 }
 
-export default function useGames() {
-  return useData<Games>(`/games`);
+export default function useGames(selectedGenre: Genere | null) {
+  return useData<Games>(`/games`, { params: { genres: selectedGenre?.id } }, [
+    selectedGenre?.id,
+  ]);
 }
