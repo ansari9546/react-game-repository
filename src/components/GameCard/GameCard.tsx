@@ -13,11 +13,11 @@ export default function GamesCard({ game }: Props) {
         <Card >
             <Image src={getCroppedImageUrl(game.background_image)}></Image>
             <CardBody>
-                <Heading fontSize={'2xl'}>{game.name}</Heading>
-                <HStack justifyContent='space-between'>
+                <HStack justifyContent='space-between' marginBlock={3}>
                     <PlatFormIconList platforms={game.parent_platforms.map(p => p.platform)}></PlatFormIconList>
                     <CriticScore score={game.metacritic}></CriticScore>
                 </HStack>
+                <Heading fontSize={'2xl'}>{game.name}</Heading>
             </CardBody>
         </Card>
     )
